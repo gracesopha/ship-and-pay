@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Ship and Pay</title>
+  <title>Shipping Options</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
   <link rel="stylesheet" href="assets/screen.css" />
 </head>
 <body>
   <main id="ship">
-
+    <header>
+      <h1>
+        Please select your preferred shipping below
+      </h1>
+    </header>
+    <form aria-labelledby="label-shipping-choice" name="shipping-choice">
+      <input type="radio" name="ship-choice" value="same-day"> Same-Day Shipping: $15.99
+      <input type="radio" name="ship-choice" value="one-day"> One-Day Shipping: $10.99
+      <input type="radio" name="ship-choice" value="standard"> Standard Shipping (3-5 days): $7.99
+    </form>
   </main>
 
   <nav>
