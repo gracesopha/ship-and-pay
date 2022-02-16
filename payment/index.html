@@ -8,6 +8,32 @@
 </head>
 <body>
   <main id="payment">
+    <h2>Preferred contact by E-mail:</h2>
+    <form aria-labelledby="label-contact" name="contact">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" id="email" autocomplete="email" />
+    </form>
+    <h2>Payment Information</h2>
+    <form aria-labelledby="label-payment" name="payment">
+      <ol>
+        <li>
+          <label for="cardholder">Name on Card</label>
+          <input type="text" name="cardholdername" id="cardholder" />
+        </li>
+        <li>
+          <label for="cardnumber">Card Number</label>
+          <input type="text" name="cardnumber" id="cardnumber"/>
+        </li>
+        <li>
+          <label for="expdate">Expiration Date</label>
+          <input type="text" name="expdate" id="expdate" placeholder="MM / YY" />
+        </li>
+        <li>
+          <label for="verification">CVV / CVC</label>
+          <input type="text" name="verification" id="verification"/>
+        </li>
+      </ol>
+    </form>
 
   </main>
 
