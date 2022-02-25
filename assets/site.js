@@ -1,14 +1,14 @@
 'use strict';
 
-function FillBilling(f) {
-  if(f.bill.checked == true) {
-    f.billname.value = f.shipname.value;
+function FillBilling(){
+  if(document.getElementById("shipisbill").checked){
+    document.getElementById("billname").value = document.getElementById("shipname").value;
   }
-    if(f.bill.checked == false) {
-    f.billname.value = '';
-    f.billname.value = '';
-  }
-}
+
+  else{
+     document.getElementById("billname").value = "";
+   }
+ }
 
 /**
   * UTILITY FUNCTIONS

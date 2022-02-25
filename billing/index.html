@@ -14,11 +14,11 @@
       </h1>
     </header>
     <h2 id="label-billing">Bill to:</h2>
-    <form aria-labelledby="label-billing" name="billing">
+    <form aria-labelledby="label-billing" name="billing" method="get">
       <fieldset name="bill-info">
         <ol>
           <li>
-            <input type="checkbox" name="bill" id="bill" onclick="FillBilling(this.form)" />
+            <input type="checkbox" name="shipisbill" id="bill" onclick="FillBilling(this.form)" />
             <label for="bill"> My billing is the same as my shipping address</label>
           </li>
           <li>
