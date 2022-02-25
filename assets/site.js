@@ -1,5 +1,14 @@
 'use strict';
 
+function FillBilling(f) {
+  if(f.bill.checked == true) {
+    f.billname.value = f.shipname.value;
+  }
+    if(f.bill.checked == false) {
+    f.billname.value = '';
+    f.billname.value = '';
+  }
+}
 
 /**
   * UTILITY FUNCTIONS
