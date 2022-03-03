@@ -1,5 +1,5 @@
 {
-  "id": "backstop_default",
+  "id": "ship_and_pay",
   "viewports": [
     {
       "label": "phone",
@@ -18,7 +18,7 @@
     {
       "label": "BackstopJS Homepage",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://garris.github.io/BackstopJS/",
+      "url": "https://localhost:8080/",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
