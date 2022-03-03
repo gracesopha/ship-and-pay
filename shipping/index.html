@@ -14,7 +14,7 @@
       </h1>
     </header>
     <h2 id="label-shipping-choice">Please select your preferred shipping below</h2>
-    <form aria-labelledby="label-shipping-choice" name="shipping-choice">
+    <form aria-labelledby="label-shipping-choice" action="../billing" name="shipping-choice">
       <ul>
         <li>
           <input type="radio" id="same-day" name="ship-choice" value="same-day"/>
@@ -33,7 +33,7 @@
 
     <h2>Deliver to:</h2>
 
-    <form aria-labelledby="label-shipping" name="shipping" method="get">
+    <form aria-labelledby="label-shipping" action="../billing" name="shipping" method="get">
       <fieldset name="ship">
         <ol>
           <li>
@@ -115,15 +115,14 @@
           </li>
         </ol>
       </fieldset>
+      <button type="submit" name="tobilling">Continue to Billing</button>
+
     </form>
   </main>
 
   <nav>
     <h2>
       <a href="../">Back to Cart</a>
-    </h2>
-    <h2>
-      <a href="../billing">Continue to Billing</a>
     </h2>
   </nav>
 
