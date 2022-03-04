@@ -14,12 +14,12 @@
       </h1>
     </header>
     <h2>Preferred contact by E-mail:</h2>
-    <form aria-labelledby="label-contact" name="contact" method="get">
+    <form aria-labelledby="label-contact" action="../summary" name="contact" method="get">
       <label for="email">E-mail</label>
       <input type="email" name="email" id="email" autocomplete="email" />
     </form>
     <h2>Payment Information</h2>
-    <form aria-labelledby="label-payment" name="payment" method="get">
+    <form aria-labelledby="label-payment" action="../summary" name="payment" method="get">
       <fieldset name="pay">
         <ol>
           <li>
@@ -40,6 +40,8 @@
           </li>
         </ol>
       </fieldset>
+      <button type="submit" name="tosummary">Continue to Summary</button>
+
     </form>
 
   </main>
@@ -47,9 +49,6 @@
   <nav>
     <h2>
       <a href="../billing">Back to Billing</a>
-    </h2>
-    <h2>
-      <a href="../summary">Continue to Summary</a>
     </h2>
   </nav>
 

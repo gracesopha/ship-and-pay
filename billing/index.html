@@ -14,7 +14,7 @@
       </h1>
     </header>
     <h2 id="label-billing">Bill to:</h2>
-    <form aria-labelledby="label-billing" name="billing" method="get">
+    <form aria-labelledby="label-billing" action="../payment" name="billing" method="get">
       <fieldset name="bill-info">
         <ol>
           <li>
@@ -100,6 +100,8 @@
           </li>
         </ol>
       </fieldset>
+      <button type="submit" name="topayment">Continue to Payment</button>
+
     </form>
 
   </main>
@@ -107,9 +109,6 @@
   <nav>
     <h2>
       <a href="../shipping">Back to Shipping</a>
-    </h2>
-    <h2>
-      <a href="../payment">Continue to Payment</a>
     </h2>
   </nav>
 
