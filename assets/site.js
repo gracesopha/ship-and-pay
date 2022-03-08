@@ -1,36 +1,108 @@
 'use strict';
 
-//write shipping info to localstorage
-var button = document.querySelector('#button');
+//set up based on page
+var html = document.querySelector('html');
+// Add a `js` class for any JavaScript-dependent CSS
+// See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+html.classList.add('js');
 
-function saveShipToLocalStorage(){
-  var shipname = document.querySelector('#shipname');
-  localStorage.setItem('shipname', shipname.value);
-  var address1 = document.querySelector('#address1');
-  localStorage.setItem('address1', address1.value);
-  var address2 = document.querySelector('#address2');
-  localStorage.setItem('address2', address2.value);
-  var city = document.querySelector('#city');
-  localStorage.setItem('city', city.value);
-  var state = document.querySelector('#states');
-  localStorage.setItem('state', states.value);
-  var zip = document.querySelector('#zip');
-  localStorage.setItem('zip', zip.value);
+if (html.id === 'shipping-page') {
+  // Logic for post-creation form goes here
+  var form = document.querySelector('form[name="shipping"]');
+  restoreFormDataFromLocalStorage(form.name);
+  form.addEventListener('submit', handleFormSubmission);
 }
+//function to submit data and proceed to next page
+function handleFormSubmission(event) {
+  var targetElement = event.target;
+  event.preventDefault(); // STOP the default browser behavior
+  writeFormDataToLocalStorage(targetElement.name); // STORE all the form data
+  window.location.href = targetElement.action; // PROCEED to the URL referenced by the form action
+}
+//function to write data to local storage
+function writeFormDataToLocalStorage(formName, inputElement) {
+  var formData = findOrCreateLocalStorageObject(formName);
 
-button.addEventListener('click', saveShipToLocalStorage);
-
-
-//make billing the same as shipping upon check
-function FillBilling(){
-  if(document.getElementById("shipisbill").checked){
-    document.getElementById("billname").value = document.getElementById("shipname").value;
+  // Set just a single input value
+  if (inputElement) {
+    formData[inputElement.name] = inputElement.value;
+  } else {
+    // Set all form input values, e.g., on a submit event
+    var formElements = document.forms[formName].elements;
+    for (var i = 0; i < formElements.length; i++) {
+      // Don't store empty elements, like the submit button
+      if (formElements[i].value !== "") {
+        formData[formElements[i].name] = formElements[i].value;
+      }
+    }
   }
 
-  else{
-     document.getElementById("billname").value = "";
-   }
- }
+  // Write the formData JS object to localStorage as JSON
+  writeJsonToLocalStorage(formName, formData);
+}
+
+function findOrCreateLocalStorageObject(keyName) {
+  var jsObject = readJsonFromLocalStorage(keyName);
+
+  if (Object.keys(jsObject).length === 0) {
+    writeJsonToLocalStorage(keyName, jsObject);
+  }
+
+  return jsObject;
+}
+
+function readJsonFromLocalStorage(keyName) {
+  var jsonObject = localStorage.getItem(keyName);
+  var jsObject = {};
+
+  if (jsonObject) {
+    try {
+      jsObject = JSON.parse(jsonObject);
+    } catch(e) {
+      console.error(e);
+      jsObject = {};
+    }
+  }
+
+  return jsObject;
+}
+
+function writeJsonToLocalStorage(keyName, jsObject) {
+  localStorage.setItem(keyName, JSON.stringify(jsObject));
+}
+//get rid of all entered data form particular form
+function destroyFormDataInLocalStorage(formName) {
+  localStorage.removeItem(formName);
+}
+//function to KEEP entered data when returning to a page
+function restoreFormDataFromLocalStorage(formName) {
+  var jsObject = readJsonFromLocalStorage(formName);
+  var formValues = Object.entries(jsObject);
+  if (formValues.length === 0) {
+    return; // nothing to restore
+  }
+  //list to write all form elements to local
+  var formElements = document.forms[formName].elements;
+  for (var i = 0; i < formValues.length; i++) {
+    console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
+    formElements[formValues[i][0]].value = formValues[i][1];
+  }
+}
+
+//keep entered data when post button is clicked
+function renderFormDataFromLocalStorage(storageKey) {
+  var jsObject = readJsonFromLocalStorage(storageKey);
+  var formValues = Object.entries(jsObject);
+  if (formValues.length === 0) {
+    return; // nothing to restore
+  }
+  //show entered data
+  var previewElement = document.querySelector('#post');
+  for (var i = 0; i < formValues.length; i++) {
+    var el = previewElement.querySelector('#'+formValues[i][0]);
+    el.innerText = formValues[i][1];
+  }
+}
 
 /**
   * UTILITY FUNCTIONS
