@@ -1,5 +1,27 @@
 'use strict';
 
+//write shipping info to localstorage
+var button = document.querySelector('#button');
+
+function saveShipToLocalStorage(){
+  var shipname = document.querySelector('#shipname');
+  localStorage.setItem('shipname', shipname.value);
+  var address1 = document.querySelector('#address1');
+  localStorage.setItem('address1', address1.value);
+  var address2 = document.querySelector('#address2');
+  localStorage.setItem('address2', address2.value);
+  var city = document.querySelector('#city');
+  localStorage.setItem('city', city.value);
+  var state = document.querySelector('#states');
+  localStorage.setItem('state', states.value);
+  var zip = document.querySelector('#zip');
+  localStorage.setItem('zip', zip.value);
+}
+
+button.addEventListener('click', saveShipToLocalStorage);
+
+
+//make billing the same as shipping upon check
 function FillBilling(){
   if(document.getElementById("shipisbill").checked){
     document.getElementById("billname").value = document.getElementById("shipname").value;
