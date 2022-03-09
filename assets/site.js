@@ -16,11 +16,21 @@ if (html.id === 'shipping-page') {
   reloadRadioButton();
 }
 
+if (html.id === 'billing-page') {
+  // Logic for payment form
+  var form = document.querySelector('form[name="billing"]');
+  restoreFormDataFromLocalStorage(form.name);
+  form.addEventListener('submit', handleFormSubmission);
+}
+
 if (html.id === 'payment-page') {
   // Logic for payment form
   var form = document.querySelector('form[name="payment"]');
+  var form1 = document.querySelector('form[name="contact"]');
   restoreFormDataFromLocalStorage(form.name);
+  restoreFormDataFromLocalStorage(form1.name);
   form.addEventListener('submit', handleFormSubmission);
+  form1.addEventListener('submit', handleFormSubmission);
 }
 
 
@@ -118,7 +128,6 @@ function renderFormDataFromLocalStorage(storageKey) {
     el.innerText = formValues[i][1];
   }
 }
-
 
 //save radio button
 function saveRadioButton() {
