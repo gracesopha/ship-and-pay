@@ -7,11 +7,23 @@ var html = document.querySelector('html');
 html.classList.add('js');
 
 if (html.id === 'shipping-page') {
-  // Logic for post-creation form goes here
+  // Logic for shipping form
   var form = document.querySelector('form[name="shipping"]');
+  var form1 = document.querySelector('form[name="shipping-choice"]');
+  restoreFormDataFromLocalStorage(form.name);
+  form.addEventListener('submit', handleFormSubmission);
+  form1.addEventListener('click', saveRadioButton);
+  reloadRadioButton();
+}
+
+if (html.id === 'payment-page') {
+  // Logic for payment form
+  var form = document.querySelector('form[name="payment"]');
   restoreFormDataFromLocalStorage(form.name);
   form.addEventListener('submit', handleFormSubmission);
 }
+
+
 //function to submit data and proceed to next page
 function handleFormSubmission(event) {
   var targetElement = event.target;
@@ -54,7 +66,7 @@ function findOrCreateLocalStorageObject(keyName) {
 function readJsonFromLocalStorage(keyName) {
   var jsonObject = localStorage.getItem(keyName);
   var jsObject = {};
-
+  //try to parse any JSON
   if (jsonObject) {
     try {
       jsObject = JSON.parse(jsonObject);
@@ -70,7 +82,7 @@ function readJsonFromLocalStorage(keyName) {
 function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
 }
-//get rid of all entered data form particular form
+//get rid of all entered data from particular form
 function destroyFormDataInLocalStorage(formName) {
   localStorage.removeItem(formName);
 }
@@ -85,6 +97,7 @@ function restoreFormDataFromLocalStorage(formName) {
   var formElements = document.forms[formName].elements;
   for (var i = 0; i < formValues.length; i++) {
     console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
+    //take entered data from local storage and assign to element
     formElements[formValues[i][0]].value = formValues[i][1];
   }
 }
@@ -92,17 +105,40 @@ function restoreFormDataFromLocalStorage(formName) {
 //keep entered data when post button is clicked
 function renderFormDataFromLocalStorage(storageKey) {
   var jsObject = readJsonFromLocalStorage(storageKey);
+  //read keys and values in multidimensional array
   var formValues = Object.entries(jsObject);
   if (formValues.length === 0) {
-    return; // nothing to restore
+    return; // nothing to restore, nothing in local storage
   }
   //show entered data
   var previewElement = document.querySelector('#post');
+  //the length of items in the multidimensional array
   for (var i = 0; i < formValues.length; i++) {
     var el = previewElement.querySelector('#'+formValues[i][0]);
     el.innerText = formValues[i][1];
   }
 }
+
+
+//save radio button
+function saveRadioButton() {
+  //Radiobuttons
+  var s = document.querySelector('input[name=ship-choice]:checked').value;
+  localStorage.setItem("shipping-choice", s);
+  console.log ('shipping choice: ' + s);
+}
+//reload radio button value
+function reloadRadioButton() {
+  var S1 = Array.from(document.getElementsByName('ship-choice'));
+  var val1 = localStorage.getItem('s');
+  for (var i = 0; i < S1.length; i++) {
+    if (S1[i].value == val1) {
+      S1[i].checked = true;
+    }
+  }
+}
+
+
 
 /**
   * UTILITY FUNCTIONS
