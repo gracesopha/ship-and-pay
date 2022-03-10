@@ -32,8 +32,7 @@ if (html.id === 'payment-page') {
 
 if (html.id === 'summary-page') {
   //logic for summary page
-  renderFormDataFromLocalStorage('shipping');
-
+  renderFormDataFromLocalStorage('billing');
 }
 
 //function to submit data and proceed to next page
@@ -123,16 +122,16 @@ function renderFormDataFromLocalStorage(storageKey) {
   if (formValues.length === 0) {
     return; // nothing to restore, nothing in local storage
   }
-  //show entered data
-  var displayElement = document.querySelector('#shipping-sum');
-
-  //the length of items in the multidimensional array
-  for (var i = 0; i < formValues.length; i++) {
-    var el = displayElement.querySelector('#'+formValues[i][0]);
-    el.innerText = formValues[i][1];
-    console.log(JSON.stringify(jsObject));
+    //show entered data
+    var displayElement = document.querySelector('#billing-sum');
+    //the length of items in the multidimensional array
+    for (var i = 0; i < formValues.length; i++) {
+      var el = displayElement.querySelector('#'+formValues[i][0]);
+      el.innerText = formValues[i][1];
+      console.log(JSON.stringify(jsObject));
+    }
   }
-}
+
 
 
 //save radio button
