@@ -36,7 +36,7 @@ if (html.id === 'summary-page') {
 
 //function to submit data and proceed to next page
 function handleFormSubmission(event) {
-  var targetElement = event.target;
+  var targetElement = event.target; //action on the page
   event.preventDefault(); // STOP the default browser behavior
   writeFormDataToLocalStorage(targetElement.name); // STORE all the form data
   window.location.href = targetElement.action; // PROCEED to the URL referenced by the form action
@@ -50,6 +50,7 @@ function writeFormDataToLocalStorage(formName, inputElement) {
     formData[inputElement.name] = inputElement.value;
   } else {
     // Set all form input values, e.g., on a submit event
+    //grab all INPUT LABEL elements from [form]
     var formElements = document.forms[formName].elements;
     for (var i = 0; i < formElements.length; i++) {
       // Don't store empty elements, like the submit button
@@ -62,7 +63,7 @@ function writeFormDataToLocalStorage(formName, inputElement) {
   // Write the formData JS object to localStorage as JSON
   writeJsonToLocalStorage(formName, formData);
 }
-
+//function to write a new object to local storage
 function findOrCreateLocalStorageObject(keyName) {
   var jsObject = readJsonFromLocalStorage(keyName);
 
@@ -72,7 +73,7 @@ function findOrCreateLocalStorageObject(keyName) {
 
   return jsObject;
 }
-
+//takes the INPUT LABEL and returns the user value as an object
 function readJsonFromLocalStorage(keyName) {
   var jsonObject = localStorage.getItem(keyName);
   var jsObject = {};
@@ -88,7 +89,7 @@ function readJsonFromLocalStorage(keyName) {
 
   return jsObject;
 }
-
+//key name will be INPUT LABEL and jsObject is user value
 function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
 }
