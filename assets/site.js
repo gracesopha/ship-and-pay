@@ -32,6 +32,8 @@ if (html.id === 'payment-page') {
 
 if (html.id === 'summary-page') {
   //logic for summary page
+  renderFormDataFromLocalStorage('shipping');
+
 }
 
 //function to submit data and proceed to next page
@@ -122,13 +124,16 @@ function renderFormDataFromLocalStorage(storageKey) {
     return; // nothing to restore, nothing in local storage
   }
   //show entered data
-  var previewElement = document.querySelector('#post');
+  var displayElement = document.querySelector('#shipping-sum');
+
   //the length of items in the multidimensional array
   for (var i = 0; i < formValues.length; i++) {
-    var el = previewElement.querySelector('#'+formValues[i][0]);
+    var el = displayElement.querySelector('#'+formValues[i][0]);
     el.innerText = formValues[i][1];
+    console.log(JSON.stringify(jsObject));
   }
 }
+
 
 //save radio button
 function saveRadioButton() {
@@ -146,6 +151,11 @@ function reloadRadioButton() {
       S1[i].checked = true;
     }
   }
+}
+
+//make billing the same as shipping if checked
+function fillBilling() {
+
 }
 
 
