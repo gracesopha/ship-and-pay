@@ -13,15 +13,15 @@
         Payment
       </h1>
     </header>
-    <h2>Preferred contact by E-mail:</h2>
-    <form aria-labelledby="label-contact" action="../summary" name="contact" method="get">
-      <label for="email">E-mail</label>
-      <input type="email" name="email" id="email" autocomplete="email" />
-    </form>
     <h2>Payment Information</h2>
     <form aria-labelledby="label-payment" action="../summary" name="payment" method="get">
       <fieldset name="pay">
         <ol>
+          <li>
+            <h3>Preferred contact by Email:</h3>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" autocomplete="email" />
+          </li>
           <li>
             <label for="cardholder">Name on Card</label>
             <input type="text" name="cardholdername" id="cardholder" />
