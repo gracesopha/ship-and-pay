@@ -32,7 +32,7 @@ if (html.id === 'payment-page') {
 
 if (html.id === 'summary-page') {
   //logic for summary page
-  renderFormDataFromLocalStorage('billing');
+  renderFormDataFromLocalStorage('shipping');
 }
 
 //function to submit data and proceed to next page
@@ -123,7 +123,7 @@ function renderFormDataFromLocalStorage(storageKey) {
     return; // nothing to restore, nothing in local storage
   }
     //show entered data
-    var displayElement = document.querySelector('#billing-sum');
+    var displayElement = document.querySelector('#shipping-sum');
     //the length of items in the multidimensional array
     for (var i = 0; i < formValues.length; i++) {
       var el = displayElement.querySelector('#'+formValues[i][0]);
@@ -140,6 +140,19 @@ function saveRadioButton() {
   var s = document.querySelector('input[name=ship-choice]:checked').value;
   localStorage.setItem("shipping-choice", s);
   console.log ('shipping choice: ' + s);
+  //set price of shipping
+  if (s === "same-day"){
+    var shippay = 15.99;
+    console.log(shippay);
+  }
+  if (s === "one-day"){
+    var shippay = 10.99;
+    console.log(shippay);
+  }
+  if (s === "standard"){
+    var shippay = 7.99;
+    console.log(shippay);
+  }
 }
 //reload radio button value
 function reloadRadioButton() {
