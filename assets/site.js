@@ -26,13 +26,13 @@ if (html.id === 'billing-page') {
 if (html.id === 'payment-page') {
   // Logic for payment form
   var form = document.querySelector('form[name="payment"]');
-  var form1 = document.querySelector('form[name="contact"]');
   restoreFormDataFromLocalStorage(form.name);
-  restoreFormDataFromLocalStorage(form1.name);
   form.addEventListener('submit', handleFormSubmission);
-  form1.addEventListener('submit', handleFormSubmission);
 }
 
+if (html.id === 'summary-page') {
+  //logic for summary page
+}
 
 //function to submit data and proceed to next page
 function handleFormSubmission(event) {
