@@ -156,7 +156,7 @@ function saveRadioButton() {
 }
 //reload radio button value
 function reloadRadioButton() {
-  var S1 = Array.from(document.getElementsByName('ship-choice'));
+  var S1 = Array.from(document.querySelector('ship-choice'));
   var val1 = localStorage.getItem('s');
   for (var i = 0; i < S1.length; i++) {
     if (S1[i].value == val1) {
