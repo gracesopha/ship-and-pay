@@ -9,10 +9,9 @@ html.classList.add('js');
 if (html.id === 'shipping-page') {
   // Logic for shipping form
   var form = document.querySelector('form[name="shipping"]');
-  var form1 = document.querySelector('form[name="shipping-choice"]');
   restoreFormDataFromLocalStorage(form.name);
   form.addEventListener('submit', handleFormSubmission);
-  form1.addEventListener('click', saveRadioButton);
+  form.addEventListener('click', saveRadioButton);
   reloadRadioButton();
 }
 
