@@ -11,7 +11,7 @@ if (html.id === 'shipping-page') {
   var form = document.querySelector('form[name="shipping"]');
   restoreFormDataFromLocalStorage(form.name);
   form.addEventListener('click', saveRadioButton);
-  //form.addEventListener('click', reloadRadioButton);
+  form.addEventListener('click', reloadRadioButton);
   form.addEventListener('submit', handleFormSubmission);
 }
 
@@ -137,28 +137,23 @@ function renderFormDataFromLocalStorage(storageKey) {
 //save radio button
 function saveRadioButton() {
   //Radiobuttons
-  var same = document.querySelector('#same-day');
-  var one = document.querySelector('#one-day');
-  var stan = document.querySelector('#standard');
-  same.setAttribute('checked',false);
-  one.setAttribute('checked',false);
-  stan.setAttribute('checked',false);
   var s = document.querySelector('input[name=ship-choice]:checked').value;
   localStorage.setItem("shipping-choice", s);
   console.log ('shipping choice: ' + s);
+
   //set price of shipping
   if (s === "same-day"){
-    same.setAttribute('checked',true);
+    document.querySelector('input[name=ship-choice]:checked').value = "same-day";
     var shippay = 15.99;
     console.log(shippay);
   }
   if (s === "one-day"){
-    one.setAttribute('checked',true);
+    document.querySelector('input[name=ship-choice]:checked').value = "one-day";
     var shippay = 10.99;
     console.log(shippay);
   }
   if (s === "standard"){
-    stan.setAttribute('checked', true);
+    document.querySelector('input[name=ship-choice]:checked').value = "standard";
     var shippay = 7.99;
     console.log(shippay);
   }
@@ -170,6 +165,7 @@ function reloadRadioButton() {
   for (var i = 0; i < S1.length; i++) {
     if (S1[i].value == val1) {
       S1[i].checked = true;
+
     }
   }
 }
