@@ -174,31 +174,30 @@ function reloadRadioButton() {
 function fillBilling() {
   var jsObject = readJsonFromLocalStorage('shipping');
   console.log(jsObject);
+  //grab the user input
   var x = jsObject.shipname;
-
   console.log(x);
   var shipisbill = document.querySelector('#shipisbill').checked;
-  var formValues = Object.entries(jsObject);
 
   if (shipisbill == true) {
-
-    jsObject.billname.value = jsObject.shipname.value;
-    document.querySelector('#billname').innerHTML = jsObject.shipname.value;
-    jsObject.baddress1.value = jsObject.address1.value;
-    jsObject.baddress2.value = jsObject.address2.value;
-    jsObject.bcity.value = jsObject.city.value;
-    jsObject.bstate.value = jsObject.state.value;
-    jsObject.bzip.value = jsObject.zip.value;
-
-
+    //set input fields the same as ship
+    document.querySelector("#billname").value = jsObject.shipname;
+    document.querySelector("#baddress1").value = jsObject.address1;
+    document.querySelector("#baddress2").value = jsObject.address2;
+    document.querySelector("#bcity").value = jsObject.city;
+    document.querySelector("#bstate").value = jsObject.state;
+    document.querySelector("#bzip").value =jsObject.zip;
     }
 
    else if (shipisbill == false) {
-    document.querySelector("#billname").value = "";
-    document.querySelector("#baddress1").value = "";
-
+     //allow user to enter info
+     document.querySelector("#billname").value = "";
+     document.querySelector("#baddress1").value = "";
+     document.querySelector("#baddress2").value = "";
+     document.querySelector("#bcity").value = "";
+     document.querySelector("#bstate").value = "";
+     document.querySelector("#bzip").value = "";
   }
-
 }
 
 
