@@ -10,15 +10,16 @@ if (html.id === 'shipping-page') {
   // Logic for shipping form
   var form = document.querySelector('form[name="shipping"]');
   restoreFormDataFromLocalStorage(form.name);
-  form.addEventListener('submit', handleFormSubmission);
   form.addEventListener('click', saveRadioButton);
-  reloadRadioButton();
+  //form.addEventListener('click', reloadRadioButton);
+  form.addEventListener('submit', handleFormSubmission);
 }
 
 if (html.id === 'billing-page') {
   // Logic for payment form
   var form = document.querySelector('form[name="billing"]');
   restoreFormDataFromLocalStorage(form.name);
+  form.addEventListener('click', fillBilling);
   form.addEventListener('submit', handleFormSubmission);
 }
 
@@ -136,19 +137,28 @@ function renderFormDataFromLocalStorage(storageKey) {
 //save radio button
 function saveRadioButton() {
   //Radiobuttons
+  var same = document.querySelector('#same-day');
+  var one = document.querySelector('#one-day');
+  var stan = document.querySelector('#standard');
+  same.setAttribute('checked',false);
+  one.setAttribute('checked',false);
+  stan.setAttribute('checked',false);
   var s = document.querySelector('input[name=ship-choice]:checked').value;
   localStorage.setItem("shipping-choice", s);
   console.log ('shipping choice: ' + s);
   //set price of shipping
   if (s === "same-day"){
+    same.setAttribute('checked',true);
     var shippay = 15.99;
     console.log(shippay);
   }
   if (s === "one-day"){
+    one.setAttribute('checked',true);
     var shippay = 10.99;
     console.log(shippay);
   }
   if (s === "standard"){
+    stan.setAttribute('checked', true);
     var shippay = 7.99;
     console.log(shippay);
   }
@@ -166,6 +176,32 @@ function reloadRadioButton() {
 
 //make billing the same as shipping if checked
 function fillBilling() {
+  var jsObject = readJsonFromLocalStorage('shipping');
+  console.log(jsObject);
+  var x = jsObject.shipname;
+
+  console.log(x);
+  var shipisbill = document.querySelector('#shipisbill').checked;
+  var formValues = Object.entries(jsObject);
+
+  if (shipisbill == true) {
+
+    jsObject.billname.value = jsObject.shipname.value;
+    document.querySelector('#billname').innerHTML = jsObject.shipname.value;
+    jsObject.baddress1.value = jsObject.address1.value;
+    jsObject.baddress2.value = jsObject.address2.value;
+    jsObject.bcity.value = jsObject.city.value;
+    jsObject.bstate.value = jsObject.state.value;
+    jsObject.bzip.value = jsObject.zip.value;
+
+
+    }
+
+   else if (shipisbill == false) {
+    document.querySelector("#billname").value = "";
+    document.querySelector("#baddress1").value = "";
+
+  }
 
 }
 
