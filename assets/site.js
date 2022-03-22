@@ -1,6 +1,7 @@
 'use strict';
-//setting up global variables
-var subtotal
+//global variables
+let shippay = 0;
+
 //set up based on page
 var html = document.querySelector('html');
 // Add a `js` class for any JavaScript-dependent CSS
@@ -10,10 +11,12 @@ html.classList.add('js');
 if (html.id === 'shipping-page') {
   // Logic for shipping form
   var form = document.querySelector('form[name="shipping"]');
+  var form2 = document.querySelector('form[name="shipping-choice"]');
   restoreFormDataFromLocalStorage(form.name);
-  form.addEventListener('click', saveRadioButton);
-  //form.addEventListener('click', reloadRadioButton);
+  form2.addEventListener('click', saveRadioButton);
+  //form2.addEventListener('click', reloadRadioButton);
   form.addEventListener('submit', handleFormSubmission);
+  form2.addEventListener('submit', handleFormSubmission);
 }
 
 if (html.id === 'billing-page') {
@@ -125,6 +128,7 @@ function renderFormDataFromLocalStorage(storageKey) {
   if (formValues.length === 0) {
     return; // nothing to restore, nothing in local storage
   }
+
   if (storageKey === 'shipping'){
     //show entered data
     var displayElement = document.querySelector('#shipping-sum');
@@ -158,8 +162,6 @@ function renderFormDataFromLocalStorage(storageKey) {
 
   }
 
-
-
 //save radio button
 function saveRadioButton() {
   //Radiobuttons
@@ -170,20 +172,22 @@ function saveRadioButton() {
   //set price of shipping
   if (s === "same-day"){
     document.querySelector('input[name=ship-choice]:checked').value = "same-day";
-    var shippay = 15.99;
+    shippay = 15.99;
     console.log(shippay);
   }
   if (s === "one-day"){
     document.querySelector('input[name=ship-choice]:checked').value = "one-day";
-    var shippay = 10.99;
+    shippay = 10.99;
     console.log(shippay);
   }
   if (s === "standard"){
     document.querySelector('input[name=ship-choice]:checked').value = "standard";
-    var shippay = 7.99;
+    shippay = 7.99;
     console.log(shippay);
   }
+  return shippay;
 }
+
 //reload radio button value
 function reloadRadioButton() {
   var S1 = Array.from(document.querySelector('ship-choice'));
@@ -225,6 +229,18 @@ function fillBilling() {
      document.querySelector("#bzip").value = "";
   }
 }
+
+function totalCost() {
+  let item = 18.99;
+  let subtotal = 0;
+  //grab shippay value
+  saveRadioButton();
+  subtotal = item + shippay;
+  console.log(subtotal.toFixed(2));
+
+  return subtotal;
+}
+
 
 
 
