@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="home-page">
+<html lang="en" id="home-page" class="g">
 <head>
   <title>Ship and Pay</title>
   <meta charset="utf-8" />
@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="assets/screen.css" />
 </head>
 <body>
+  <header id="header">
+    <h1>Tiny's & Co.</h1>
+  </header>
   <main id="content">
 
     <h2>Items in Cart</h2>
     <ol>
       <li id="item">
         <figure>
-          <img src="assets/imgs/headphones_icon.jpeg" alt="Headphones"/>
+          <img src="assets/imgs/headphones_icon.jpeg" alt="Headphones" aria-labelledby="item-desc"/>
           <figcaption></figcaption>
         </figure>
-        <p>Headphones $18.99</p>
+        <p id="item-desc">Headphones $18.99</p>
       </li>
     </ol>
     <header>
@@ -26,7 +29,7 @@
       <ul>
         <li>
           <h2>
-            <a href="shipping">Go to Checkout</a>
+            <a role=link href="shipping">Go to Checkout</a>
           </h2>
         </li>
         <li>
