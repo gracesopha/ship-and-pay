@@ -14,7 +14,7 @@ if (html.id === 'shipping-page') {
   var form2 = document.querySelector('form[name="shipping-choice"]');
   restoreFormDataFromLocalStorage(form.name);
   form2.addEventListener('click', saveRadioButton);
-  //form2.addEventListener('click', reloadRadioButton);
+  form2.addEventListener('click', reloadRadioButton);
   form.addEventListener('submit', handleFormSubmission);
   form2.addEventListener('submit', handleFormSubmission);
 }
@@ -231,15 +231,29 @@ function fillBilling() {
 }
 
 function totalCost() {
+  //hardcode item price
   let item = 18.99;
+  let total = 0;
   let subtotal = 0;
   //grab shippay value
   saveRadioButton();
-  subtotal = item + shippay;
-  console.log(subtotal.toFixed(2));
+  total = item + shippay;
+  subtotal= total.toFixed(2);
+
+  localStorage.setItem("subtotal", subtotal);
+  console.log ('subtotal: ' + subtotal);
 
   return subtotal;
 }
+
+function displayCost() {
+  //write the total and
+  document.querySelector('#subtotal').innerText = '$' + localStorage.getItem('subtotal');
+  document.querySelector('#ship-choice').innerText = localStorage.getItem('shipping-choice');
+
+}
+
+
 
 
 
