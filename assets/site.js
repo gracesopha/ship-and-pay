@@ -1,8 +1,8 @@
 'use strict';
-//global variables
-let shippay = 0;
+// global variables
+var shippay = 0;
 
-//set up based on page
+// set up based on page
 var html = document.querySelector('html');
 // Add a `js` class for any JavaScript-dependent CSS
 // See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
@@ -36,21 +36,21 @@ if (html.id === 'payment-page') {
 }
 
 if (html.id === 'summary-page') {
-  //logic for summary page
+  // logic for summary page
   renderFormDataFromLocalStorage('shipping');
   renderFormDataFromLocalStorage('billing');
   renderFormDataFromLocalStorage('payment');
   displayCost();
 }
 
-//function to submit data and proceed to next page
+// function to submit data and proceed to next page
 function handleFormSubmission(event) {
-  var targetElement = event.target; //action on the page
+  var targetElement = event.target; // action on the page
   event.preventDefault(); // STOP the default browser behavior
   writeFormDataToLocalStorage(targetElement.name); // STORE all the form data
   window.location.href = targetElement.action; // PROCEED to the URL referenced by the form action
 }
-//function to write data to local storage
+// function to write data to local storage
 function writeFormDataToLocalStorage(formName, inputElement) {
   var formData = findOrCreateLocalStorageObject(formName);
 
@@ -59,7 +59,7 @@ function writeFormDataToLocalStorage(formName, inputElement) {
     formData[inputElement.name] = inputElement.value;
   } else {
     // Set all form input values, e.g., on a submit event
-    //grab all INPUT LABEL elements from [form]
+    // grab all INPUT LABEL elements from [form]
     var formElements = document.forms[formName].elements;
     for (var i = 0; i < formElements.length; i++) {
       // Don't store empty elements, like the submit button
@@ -72,7 +72,7 @@ function writeFormDataToLocalStorage(formName, inputElement) {
   // Write the formData JS object to localStorage as JSON
   writeJsonToLocalStorage(formName, formData);
 }
-//function to write a new object to local storage
+// function to write a new object to local storage
 function findOrCreateLocalStorageObject(keyName) {
   var jsObject = readJsonFromLocalStorage(keyName);
 
@@ -82,11 +82,11 @@ function findOrCreateLocalStorageObject(keyName) {
 
   return jsObject;
 }
-//takes the INPUT LABEL and returns the user value as an object
+// takes the INPUT LABEL and returns the user value as an object
 function readJsonFromLocalStorage(keyName) {
   var jsonObject = localStorage.getItem(keyName);
   var jsObject = {};
-  //try to parse any JSON
+  // try to parse any JSON
   if (jsonObject) {
     try {
       jsObject = JSON.parse(jsonObject);
@@ -98,53 +98,53 @@ function readJsonFromLocalStorage(keyName) {
 
   return jsObject;
 }
-//key name will be INPUT LABEL and jsObject is user value
+// key name will be INPUT LABEL and jsObject is user value
 function writeJsonToLocalStorage(keyName, jsObject) {
   localStorage.setItem(keyName, JSON.stringify(jsObject));
 }
-//get rid of all entered data from particular form
+// get rid of all entered data from particular form
 function destroyFormDataInLocalStorage(formName) {
   localStorage.removeItem(formName);
 }
-//function to KEEP entered data when returning to a page
+// function to KEEP entered data when returning to a page
 function restoreFormDataFromLocalStorage(formName) {
   var jsObject = readJsonFromLocalStorage(formName);
   var formValues = Object.entries(jsObject);
   if (formValues.length === 0) {
     return; // nothing to restore
   }
-  //list to write all form elements to local
+  // list to write all form elements to local
   var formElements = document.forms[formName].elements;
   for (var i = 0; i < formValues.length; i++) {
     console.log('Form input key:', formValues[i][0], 'Form input value:', formValues[i][1]);
-    //take entered data from local storage and assign to element
+    // take entered data from local storage and assign to element
     formElements[formValues[i][0]].value = formValues[i][1];
   }
 }
 
-//keep entered data when post button is clicked
+// keep entered data when post button is clicked
 function renderFormDataFromLocalStorage(storageKey) {
   var jsObject = readJsonFromLocalStorage(storageKey);
-  //read keys and values in multidimensional array
+  // read keys and values in multidimensional array
   var formValues = Object.entries(jsObject);
   if (formValues.length === 0) {
     return; // nothing to restore, nothing in local storage
   }
 
   if (storageKey === 'shipping'){
-    //show entered data
+    // show entered data
     var displayElement = document.querySelector('#shipping-sum');
-    //the length of items in the multidimensional array
+    // the length of items in the multidimensional array
     for (var i = 0; i < formValues.length; i++) {
       var el = displayElement.querySelector('#'+formValues[i][0]);
       el.innerText = formValues[i][1];
       console.log(JSON.stringify(jsObject));
-    }
+    }2;
   }
   if (storageKey === 'billing'){
-    //show entered data
+    // show entered data
     var displayElement = document.querySelector('#billing-sum');
-    //the length of items in the multidimensional array
+    // the length of items in the multidimensional array
     for (var i = 1; i < formValues.length; i++) {
       var el = displayElement.querySelector('#'+formValues[i][0]);
       el.innerText = formValues[i][1];
@@ -152,9 +152,9 @@ function renderFormDataFromLocalStorage(storageKey) {
     }
   }
   if (storageKey === 'payment'){
-    //show entered data
+    // show entered data
     var displayElement = document.querySelector('#payment-sum');
-    //the length of items in the multidimensional array
+    // the length of items in the multidimensional array
     for (var i = 0; i < formValues.length; i++) {
       var el = displayElement.querySelector('#'+formValues[i][0]);
       el.innerText = formValues[i][1];
@@ -162,16 +162,16 @@ function renderFormDataFromLocalStorage(storageKey) {
     }
   }
 
-  }
+}
 
-//save radio button
+// save radio button
 function saveRadioButton() {
-  //Radiobuttons
+  // radiobuttons
   var s = document.querySelector('input[name=ship-choice]:checked').value;
   localStorage.setItem("shipping-choice", s);
-  console.log ('shipping choice: ' + s);
+  console.log('shipping choice: ' + s);
 
-  //set price of shipping
+  // set price of shipping
   if (s === "same-day"){
     document.querySelector('input[name=ship-choice]:checked').value = "same-day";
     shippay = 15.99;
@@ -190,7 +190,7 @@ function saveRadioButton() {
   return shippay;
 }
 
-//reload radio button value
+// reload radio button value
 function reloadRadioButton() {
   var S1 = Array.from(document.querySelector('ship-choice'));
   var val1 = localStorage.getItem('s');
@@ -202,54 +202,52 @@ function reloadRadioButton() {
   }
 }
 
-//make billing the same as shipping if checked
+// make billing the same as shipping if checked
 function fillBilling() {
   var jsObject = readJsonFromLocalStorage('shipping');
   console.log(jsObject);
-  //grab the user input
+  // grab the user input
   var x = jsObject.shipname;
   console.log(x);
   var shipisbill = document.querySelector('#shipisbill').checked;
 
   if (shipisbill == true) {
-    //set input fields the same as ship
+    // set input fields the same as ship
     document.querySelector("#billname").value = jsObject.shipname;
     document.querySelector("#baddress1").value = jsObject.address1;
     document.querySelector("#baddress2").value = jsObject.address2;
     document.querySelector("#bcity").value = jsObject.city;
     document.querySelector("#bstate").value = jsObject.state;
     document.querySelector("#bzip").value =jsObject.zip;
-    }
-
-   else if (shipisbill == false) {
-     //allow user to enter info
-     document.querySelector("#billname").value = "";
-     document.querySelector("#baddress1").value = "";
-     document.querySelector("#baddress2").value = "";
-     document.querySelector("#bcity").value = "";
-     document.querySelector("#bstate").value = "";
-     document.querySelector("#bzip").value = "";
+  } else if (shipisbill == false) {
+    // allow user to enter info
+    document.querySelector("#billname").value = "";
+    document.querySelector("#baddress1").value = "";
+    document.querySelector("#baddress2").value = "";
+    document.querySelector("#bcity").value = "";
+    document.querySelector("#bstate").value = "";
+    document.querySelector("#bzip").value = "";
   }
 }
 
 function totalCost() {
-  //hardcode item price
-  let item = 18.99;
-  let total = 0;
-  let subtotal = 0;
-  //grab shippay value
+  // hardcode item price
+  var item = 18.99;
+  var total = 0;
+  var subtotal = 0;
+  // grab shippay value
   saveRadioButton();
   total = item + shippay;
   subtotal= total.toFixed(2);
 
   localStorage.setItem("subtotal", subtotal);
-  console.log ('subtotal: ' + subtotal);
+  console.log('subtotal: ' + subtotal);
 
   return subtotal;
 }
 
 function displayCost() {
-  //write the total and
+  // write the total and
   document.querySelector('#subtotal').innerText = '$' + localStorage.getItem('subtotal');
   document.querySelector('#ship-choice').innerText = localStorage.getItem('shipping-choice');
 
@@ -281,7 +279,7 @@ function debounce(callback, delay) {
       // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
       callback.apply(context, args);
     }, delay);
-  }
+  };
 }
 
 // throttle to slow execution to a certain amount of elapsed time (limit)
@@ -302,5 +300,5 @@ function throttle(callback, limit) {
         throttling = false;
       }, limit);
     }
-  }
+  };
 }
