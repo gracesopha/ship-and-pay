@@ -38,11 +38,11 @@
         <ol>
           <li>
             <label for="shipname">First and Last Name</label>
-            <input type="text" name="shipname" id="shipname" />
+            <input type="text" name="shipname" id="shipname" required/>
           </li>
           <li>
             <label for="address1">Address 1</label>
-            <input type="text" name="address1" id="address1" />
+            <input type="text" name="address1" id="address1" required/>
           </li>
           <li>
             <label for="address2">Address 2</label>
@@ -50,12 +50,12 @@
           </li>
           <li>
             <label for="city">City</label>
-            <input type="text" name="city" id="city" />
+            <input type="text" name="city" id="city" required/>
           </li>
           <li>
             <label for="state">State</label>
-            <input list="states" type="text" name="state" id="state" />
-            <datalist id="states">
+            <input list="states" type="text" name="state" id="state" required/>
+            <datalist id="states" aria-hidden="true">
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -111,7 +111,7 @@
           </li>
           <li>
             <label for="zip">Zip Code</label>
-            <input type="text" name="zip" id="zip" maxlength="5"/>
+            <input type="text" name="zip" id="zip" maxlength="5" required/>
           </li>
         </ol>
       </fieldset>
@@ -119,7 +119,7 @@
     </form>
   </main>
 
-  <nav>
+  <nav role=>
     <h2>
       <a href="../">Back to Cart</a>
     </h2>

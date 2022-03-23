@@ -23,11 +23,11 @@
           </li>
           <li>
             <label for="billname">First and Last Name</label>
-            <input type="text" name="billname" id="billname" />
+            <input type="text" name="billname" id="billname" required/>
           </li>
           <li>
             <label for="baddress1">Address 1</label>
-            <input type="text" name="baddress1" id="baddress1" />
+            <input type="text" name="baddress1" id="baddress1" required/>
           </li>
           <li>
             <label for="baddress2">Address 2</label>
@@ -35,12 +35,12 @@
           </li>
           <li>
             <label for="bcity">City</label>
-            <input type="text" name="bcity" id="bcity" />
+            <input type="text" name="bcity" id="bcity" required/>
           </li>
           <li>
             <label for="bstate">State</label>
-            <input list="bstates" type="text" name="bstate" id="bstate" />
-            <datalist id="bstates">
+            <input list="bstates" type="text" name="bstate" id="bstate" required/>
+            <datalist id="bstates" aria-hidden="true">
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -96,7 +96,7 @@
           </li>
           <li>
             <label for="bzip">Zip Code</label>
-            <input type="text" name="bzip" id="bzip" maxlength="5"/>
+            <input type="text" name="bzip" id="bzip" maxlength="5" aria-hidden="true"/>
           </li>
         </ol>
       </fieldset>
