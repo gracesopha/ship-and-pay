@@ -17,6 +17,7 @@ if (html.id === 'shipping-page') {
   form2.addEventListener('click', reloadRadioButton);
   form.addEventListener('submit', handleFormSubmission);
   form2.addEventListener('submit', handleFormSubmission);
+  totalCost();
 }
 
 if (html.id === 'billing-page') {
@@ -39,6 +40,7 @@ if (html.id === 'summary-page') {
   renderFormDataFromLocalStorage('shipping');
   renderFormDataFromLocalStorage('billing');
   renderFormDataFromLocalStorage('payment');
+  displayCost();
 }
 
 //function to submit data and proceed to next page
@@ -143,7 +145,7 @@ function renderFormDataFromLocalStorage(storageKey) {
     //show entered data
     var displayElement = document.querySelector('#billing-sum');
     //the length of items in the multidimensional array
-    for (var i = 0; i < formValues.length; i++) {
+    for (var i = 1; i < formValues.length; i++) {
       var el = displayElement.querySelector('#'+formValues[i][0]);
       el.innerText = formValues[i][1];
       console.log(JSON.stringify(jsObject));
