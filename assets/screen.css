@@ -49,9 +49,7 @@ p {
   font-size: 0.5em; /* 14/24px= 0.5 em*/
   padding: inherit;
 }
-p#cardnumber,
-#expdate,
-#verification{
+.hide{
   display: none;
 }
 .checks {
@@ -102,6 +100,7 @@ li#item{
 
 figure{
   mix-blend-mode: multiply; /* to make white background transparent */
+  padding: 1em;
 }
 
 footer{
