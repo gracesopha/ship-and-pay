@@ -90,6 +90,10 @@ section#shipping-sum,
   border-radius: 0.5em; /* 12/24px */
   padding-left: 0.1666666667em; /* 2/12px */
 }
+.summary{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 li#home{
   display: inline-flex;
 }
