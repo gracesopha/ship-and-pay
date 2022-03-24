@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Fraunces:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Fraunces:wght@600&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -19,37 +19,38 @@ html {
   padding: 0.4166666667em; /* 10/24px= 0.4166666667 em*/
   background-color: #FFF6F6;
 }
-header#header{
+header#header {
   font-family: Fraunces, serif;
   font-size: 1.0833333333em; /* 26/24px */
   color: #7887AB;
   padding: inherit;
 }
-h1#pagename{
+h1#pagename {
   display: flex;
   flex-direction: row;
   justify-content: center;
   font-weight: bold;
   padding: 0.5em;
 }
-h2{
+h2 {
   font-size: 0.8333333333em; /* 20/24px */
   padding: inherit;
+  padding-bottom: 0.5em;
 }
-h3{
+h3 {
   font-size: 0.75em; /* 18/24px */
   padding: inherit;
 }
-h4{
+h4 {
   font-size: 0.5833333333em; /* 18/24px */
   padding: inherit;
 }
 p {
   display: grid;
-  font-size: 0.5em; /* 14/24px= 0.5 em*/
+  font-size: 0.5em; /* 12/24px= 0.5 em*/
   padding: inherit;
 }
-.hide{
+.hide {
   display: none;
 }
 .checks {
@@ -64,11 +65,11 @@ p {
   border-radius: 1em;
   text-decoration: none; /* to remove underline */
 }
-a{
+a {
   color: #162955;
   padding: inherit;
 }
-button{
+button {
   font-family: Commissioner, Arial, sans-serif;
   padding: 0.5em 0.5em ; /* 12/24px */
   background-color: #162955;
@@ -90,45 +91,47 @@ input#state,
 #zip,
 #bzip,
 #expdate,
-#verification{
+#verification {
   width: 4em;
   height: 1.5em;
 }
 section#shipping-sum,
 #billing-sum,
-#payment-sum{
+#payment-sum {
   display: grid;
   background-color: #C1C2C7;
   border-radius: 0.5em; /* 12/24px */
   padding-left: 0.1666666667em; /* 2/12px */
 }
-.summary{
-  display:grid;
+.summary {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-ul#nextpage{
-  display: inline-flex;
-  flex-direction: row;
-  padding: 1em;
-}
-li#nextpage{
+ul#nextpage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
+  grid-gap: 1.25em;
+  padding-top: 1em;
 }
 
-li#home{
-  display: inline-flex;
+ul#home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  grid-gap: 1.25em;
 }
-li#item{
+li#item {
   display: flex;
   justify-content: center;
 }
 
-figure{
+figure {
   mix-blend-mode: multiply; /* to make white background transparent */
   padding: 1em;
 }
 
-footer{
+footer {
   font-size: 0.4166666667em; /* 10/24px= 0.4166666667 em*/
 }
 
