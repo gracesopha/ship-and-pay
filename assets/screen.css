@@ -48,12 +48,10 @@ p {
   font-size: 0.5em; /* 14/24px= 0.5 em*/
   padding: inherit;
 }
-.checks {
+.checks, {
   display: flex;
-
 }
-a{
-  font-size:
+.navigate {
   font-family: Commissioner, Arial, sans-serif;
   padding: 0.5em 0.5em ; /* 12/24px */
   background-color: #4F628E;
@@ -61,6 +59,8 @@ a{
   color: #FFF6F6;
   border-radius: 1em;
   text-decoration: none; /* to remove underline */
+}
+a{
 
 }
 button{
