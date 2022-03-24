@@ -111,7 +111,7 @@ ul#nextpage {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  grid-gap: 1.25em;
+  grid-gap: 1.25em; /* 30/24px */
   padding-top: 1em;
 }
 
@@ -119,12 +119,13 @@ ul#home {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  grid-gap: 1.25em;
+  grid-gap: 1.25em; /* 30/24px */
 }
 li#item {
   display: flex;
   justify-content: center;
 }
+
 
 figure {
   mix-blend-mode: multiply; /* to make white background transparent */
@@ -137,13 +138,25 @@ footer {
 
 
 /* MEDIA QUERIES */
-/* 300/16px=18.75em em*/
-@media screen and (min-width: 18.75em) {
-
-}
 /* 600/16px=37.5 em*/
 @media screen and (min-width: 37.5em) {
-
+  input,
+  label {
+    display: block;
+    font-size: 1em; /* 16/24px */
+    padding: inherit;
+  }
+  ul#home {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+  ul#nextpage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    grid-gap: 14em;
+    padding-top: 1em;
+  }
 }
 /*
   A quick baseline grid overlay using css+svg.
