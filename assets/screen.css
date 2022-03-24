@@ -45,8 +45,14 @@ h4{
   padding: inherit;
 }
 p {
+  display: grid;
   font-size: 0.5em; /* 14/24px= 0.5 em*/
   padding: inherit;
+}
+p#cardnumber,
+#expdate,
+#verification{
+  display: none;
 }
 .checks {
   display: flex;
@@ -81,9 +87,13 @@ label {
 section#shipping-sum,
 #billing-sum,
 #payment-sum{
+  display: grid;
   background-color: #C1C2C7;
   border-radius: 0.5em; /* 12/24px */
   padding-left: 0.1666666667em; /* 2/12px */
+}
+li#home{
+  display: inline-flex;
 }
 li#item{
   display: flex;
