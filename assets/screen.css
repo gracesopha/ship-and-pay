@@ -85,6 +85,10 @@ section#shipping-sum,
   border-radius: 0.5em; /* 12/24px */
   padding-left: 0.1666666667em; /* 2/12px */
 }
+li#item{
+  display: flex;
+  justify-content: center;
+}
 
 figure{
   mix-blend-mode: multiply; /* to make white background transparent */
