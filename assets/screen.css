@@ -48,6 +48,10 @@ p {
   font-size: 0.5em; /* 14/24px= 0.5 em*/
   padding: inherit;
 }
+.checks {
+  display: flex;
+
+}
 a{
   font-size:
   font-family: Commissioner, Arial, sans-serif;
