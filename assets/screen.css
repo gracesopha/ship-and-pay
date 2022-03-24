@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Fraunces:wght@600&display=swap');
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -5,11 +6,28 @@
 /* stylelint-disable*/
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}html{line-height:1}body{line-height:inherit}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 /* stylelint-enable */
-@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Fraunces:wght@600&display=swap');
 /* Begin site styles below */
 
 /* COLOR PALETTE: https://paletton.com/#uid=13L0u0kllllaFw0g0qFqFg0w0aF */
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: Commissioner, Arial, sans-serif;
+  font-size: 1.5em; /* 24/16px= 1.5 em*/
+  line-height: 1.1666666667em; /* 28/24px= 1.1666666667 em*/
+  padding: 0.4166666667em; /* 10/24px= 0.4166666667 em*/
+  background-color: #FFF6F6;
+}
+header#header{
+  font-family: Fraunces, serif;
+  font-size: 1.0833333333em;
+  
+}
 
+footer{
+  font-size: 0.4166666667em; /* 10/24px= 0.4166666667 em*/
+}
 
 
 /* MEDIA QUERIES */
