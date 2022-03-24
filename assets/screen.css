@@ -12,7 +12,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 
 
+/* MEDIA QUERIES */
+/* 300/16px=18.75em em*/
+@media screen and (min-width: 18.75em) {
 
+}
+/* 600/16px=37.5 em*/
+@media screen and (min-width: 37.5em) {
+
+}
 /*
   A quick baseline grid overlay using css+svg.
   Inspired by [Basehold.it](https://basehold.it/). @author leshido
