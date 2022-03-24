@@ -48,7 +48,7 @@ p {
   font-size: 0.5em; /* 14/24px= 0.5 em*/
   padding: inherit;
 }
-.checks, {
+.checks {
   display: flex;
 }
 .navigate {
@@ -61,7 +61,8 @@ p {
   text-decoration: none; /* to remove underline */
 }
 a{
-
+  color: #162955;
+  padding: inherit;
 }
 button{
   font-family: Commissioner, Arial, sans-serif;
@@ -75,7 +76,14 @@ input,
 label {
   display: block;
   font-size: 0.6666666667em; /* 16/24px */
-
+  padding: inherit;
+}
+section#shipping-sum,
+#billing-sum,
+#payment-sum{
+  background-color: #C1C2C7;
+  border-radius: 0.5em; /* 12/24px */
+  padding-left: 0.1666666667em; /* 2/12px */
 }
 
 figure{
