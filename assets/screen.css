@@ -21,9 +21,42 @@ html {
 }
 header#header{
   font-family: Fraunces, serif;
-  font-size: 1.0833333333em;
-  
+  font-size: 1.0833333333em; /* 26/24px */
+  color: #7887AB;
+  padding: inherit;
 }
+h1#pagename{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5em;
+}
+h2{
+  font-size: 0.8333333333em; /* 20/24px */
+  padding: inherit;
+}
+p {
+  font-size: 0.5em; /* 14/24px= 0.5 em*/
+  padding: inherit;
+}
+a{
+
+}
+button{
+  font-family: Commissioner, Arial, sans-serif;
+  padding: 0.5em 0.5em ; /* 12/24px */
+  background-color: #162955;
+  border: none;
+  color: #FFF6F6;
+  border-radius: 1em;
+}
+input,
+label {
+  display: block;
+  font-size: 0.6666666667em; /* 16/24px */
+
+}
+
 
 footer{
   font-size: 0.4166666667em; /* 10/24px= 0.4166666667 em*/
