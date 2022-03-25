@@ -219,6 +219,7 @@ function fillBilling() {
     document.querySelector("#bcity").value = jsObject.city;
     document.querySelector("#bstate").value = jsObject.state;
     document.querySelector("#bzip").value =jsObject.zip;
+    shipisbill.setAttribute('aria-checked', 'true');
   } else if (shipisbill == false) {
     // allow user to enter info
     document.querySelector("#billname").value = "";
@@ -227,6 +228,7 @@ function fillBilling() {
     document.querySelector("#bcity").value = "";
     document.querySelector("#bstate").value = "";
     document.querySelector("#bzip").value = "";
+    shipisbill.setAttribute('aria-checked', 'false');
   }
 }
 
