@@ -16,9 +16,9 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "BackstopJS Homepage",
+      "label": "BackstopJS TESTING",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://localhost:8080/",
+      "url": "http://localhost:8080/",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
